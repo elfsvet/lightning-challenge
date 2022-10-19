@@ -1,4 +1,3 @@
-const colors = require('colors')
 
 
 module.exports = assetsToMessage = (owner, name) =>{
