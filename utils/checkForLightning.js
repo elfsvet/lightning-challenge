@@ -1,27 +1,44 @@
-const calculateQuadKey = require('./calculateQuad')
-const assetsToMessage = require('./assetsToMessage')
-const assets = require('../assets.json')
-const alertsObject = {}
-const results = []
+const fs = require('fs');
+// to calculate the quadKey we will use the npm package
+const calculateQuadKey = require('./calculateQuadKey');
+const assetsToMessage = require('./assetsToMessage');
+const alertAppear = {};
+const assets = require('../data/assets.json');
+const oneLine = {"flashType":1,"strikeTime":1446761075144,"latitude":33.651259,"longitude":-97.4635108,"peakAmps":4970,"reserved":"000","icHeight":18827,"receivedTime":1446761087837,"numberOfSensors":19,"multiplicity":14}
 
-const checkForLightning = (obj) => {
 
-    const quadKey = calculateQuadKey(obj.latitude, obj.longitude)
-    assets.map(asset => {
-        if (asset.quadKey === quadKey) {
-            if (!alertsObject.hasOwnProperty(asset.assetOwner)) {
-                console.log(assetsToMessage(asset.assetOwner, asset.assetName))
-                results.push(assetsToMessage(asset.assetOwner, asset.assetName))
-                alertsObject[asset.assetOwner] = 1
-            } else {
-                alertsObject[asset.assetOwner]++;
-                console.log('No in the assets area')
+const checkForLightning = (lightningObj) => { // here's where we do something with a line
+    if (
+        lightningObj.hasOwnProperty('flashType') &&
+        lightningObj.hasOwnProperty('strikeTime') &&
+        lightningObj.hasOwnProperty('latitude') &&
+        lightningObj.hasOwnProperty('longitude') &&
+        lightningObj.hasOwnProperty('peakAmps') &&
+        lightningObj.hasOwnProperty('reserved') &&
+        lightningObj.hasOwnProperty('icHeight') &&
+        lightningObj.hasOwnProperty('receivedTime') &&
+        lightningObj.hasOwnProperty('numberOfSensors') &&
+        lightningObj.hasOwnProperty('multiplicity')
+
+    ) {
+        
+        const quadKey = calculateQuadKey(lightningObj.latitude, lightningObj.longitude);   // get the quad key from the object
+        assets.map(asset => {   // look up in the assets all assets that much the quadKey and have not alert already
+            if (asset.quadKey === quadKey) {
+                if (!alertAppear.hasOwnProperty(asset.assetOwner)) {
+                    console.log(
+                        assetsToMessage(asset.assetOwner, asset.assetName)
+                    );
+                    alertAppear[asset.assetOwner] = 1;
+                } else {
+                    alertAppear[asset.assetOwner]++;
+                }
             }
-        }
-    })
-    return 
-}
-console.log(
+        });
+    } else {
+        return console.log('Invalid input');
+    }
+};
 
-    checkForLightning({"flashType":1,"strikeTime":1446760902510,"latitude":8.7020156,"longitude":-12.2736188,"peakAmps":3034,"reserved":"000","icHeight":11829,"receivedTime":1446760915181,"numberOfSensors":6,"multiplicity":1})
-)
+module.exports = checkForLightning;
+
