@@ -20,8 +20,8 @@ Program that reads lightning events data as a stream from standard input (one li
 ## Technologies
 Project is created with:
 - JavaScript
-- npm
 - Node.js
+- quadkeytools npm package
 
 ## Installation
 To open this project in vscode using git in Terminal/Git Bash:
@@ -52,6 +52,7 @@ To do:
 - create front end to the project.
 - change console.log to alerts of modules to display to the client
 - show alert after some set of time.
+- make more interactive than simple console.log in the console
 
 ## Acknowledgements
 - This project was inspired by DTN tech assignment [_starter code_](https://bitbucket.org/dtnse/lightning-alert/src/master/).
