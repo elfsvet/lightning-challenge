@@ -3,7 +3,7 @@ const fs = require('fs');
 const calculateQuadKey = require('./calculateQuadKey');
 const assetsToMessage = require('./assetsToMessage');
 const alertAppear = {};
-const assets = require('../data/assets.json');
+const assets = require('../core/assets.json');
 const oneLine = {"flashType":1,"strikeTime":1446761075144,"latitude":33.651259,"longitude":-97.4635108,"peakAmps":4970,"reserved":"000","icHeight":18827,"receivedTime":1446761087837,"numberOfSensors":19,"multiplicity":14}
 
 

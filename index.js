@@ -1,7 +1,7 @@
 const fs = require('fs');
 const checkForLightning = require('./utils/checkForLightning');
 
-const stream = fs.createReadStream('./data/lightning.json', { flags: 'r', encoding: 'utf-8' });
+const stream = fs.createReadStream('./core/lightning.json', { flags: 'r', encoding: 'utf-8' });
 
 let buf = '';
 
