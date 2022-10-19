@@ -43,16 +43,17 @@ __or__
 ## Usage
 To see the Owner and Name of lightning location provided in assets
 ## Project Status
-Project is: _complete_
+Project is: _in process_
 
 ## Room for Improvement
 To do:
-- add tests and make tests work
-- the whole project could be improvement
+- add tests and make tests work.
+- the whole project could be improvement.
 - create front end to the project.
-- change console.log to alerts of modules to display to the client
+- change console.log to alerts of modules to display to the client.
 - show alert after some set of time.
-- make more interactive than simple console.log in the console
+- make more interactive than simple console.log in the console.
+- add error validations. 
 
 ## Acknowledgements
 - This project was inspired by DTN tech assignment [_starter code_](https://bitbucket.org/dtnse/lightning-alert/src/master/).
