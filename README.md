@@ -53,7 +53,7 @@ To do:
 - change console.log to alerts of modules to display to the client.
 - show alert after some set of time.
 - make more interactive than simple console.log in the console.
-- add error validations. 
+- add error validation.
 
 ## Acknowledgements
 - This project was inspired by DTN tech assignment [_starter code_](https://bitbucket.org/dtnse/lightning-alert/src/master/).
